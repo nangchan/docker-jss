@@ -1,2 +1,2 @@
 # docker-jss
-Docker files that creates a Sitecore JSS instance
+Dockerfile that stands up a Sitecore JSS 11 website on CentOS7
