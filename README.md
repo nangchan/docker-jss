@@ -2,6 +2,7 @@
 *To Build:*
 
 docker build --rm --no-cache -t noreplyback/jss .
+
 docker run --privileged --name jss -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 2200:22 -p 3000:3000 -d noreplyback/jss
 
 Dockerfile that stands up a Sitecore JSS 11 website on CentOS7
