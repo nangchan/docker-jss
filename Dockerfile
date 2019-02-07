@@ -50,8 +50,8 @@ RUN ln -s /usr/lib/systemd/system/systemd-user-sessions.service /etc/systemd/sys
 
 # Create new user webteam
 RUN yum -y install openssl passwd; yum clean all
-# Add user to wheel for sudo and set password to mypasswd
-RUN adduser webteam -g wheel -p $(echo mypasswd | openssl passwd -1 -stdin)
+# Add user to wheel for sudo and set password to hUh458hDh2j382D02jD5cMw2Di8J19f2
+RUN adduser webteam -g wheel -p $(echo hUh458hDh2j382D02jD5cMw2Di8J19f2 | openssl passwd -1 -stdin)
 
 # Install sudo and SSH client
 RUN yum -y install sudo openssh-clients; yum clean all
@@ -59,7 +59,7 @@ RUN yum -y install sudo openssh-clients; yum clean all
 
 
 # Install extra packages
-RUN yum -y install vim tmux git; yum clean all
+RUN yum -y install vim tmux git man; yum clean all
 
 # Install nodejs 11 and npm 6
 RUN curl -sL https://rpm.nodesource.com/setup_11.x | sudo bash -
@@ -72,7 +72,17 @@ RUN npm install -g @sitecore-jss/sitecore-jss-cli
 RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/yarn.repo
 RUN yum -y install yarn
 
+# Install htop
+yum -y install epel-release
+yum -y update
+yum -y install htop
 
+
+
+# Copy SSH public key to container for user webteam
+ADD ./authorized_keys /home/webteam/.ssh/authorized_keys
+# Copy sudoers to not need a password
+ADD ./sudoers /etc/
 
 # Run start.sh under webteam user
 ADD ./start.sh /start.sh
@@ -82,10 +92,7 @@ RUN su webteam -c "./start.sh"
 
 
 # show password
-RUN echo ssh credentials - webteam:mypasswd@localhost
-
-# Copy SSH public key to container for user webteam
-ADD ./authorized_keys /home/webteam/.ssh/authorized_keys
+RUN echo ssh credentials - webteam:hUh458hDh2j382D02jD5cMw2Di8J19f2@localhost
 
 EXPOSE 22
 
