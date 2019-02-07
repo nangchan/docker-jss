@@ -19,12 +19,12 @@ Dockerfile that stands up a Sitecore JSS 11 website on CentOS7
 #### To Build:
 
 
-build docker image with target name noreplyback/jss
+Build docker image with target name noreplyback/jss
 ```
 docker build --rm --no-cache -t noreplyback/jss .
 ```
 
-build docker image noreplyback/jss with short name jss\
+Run docker image noreplyback/jss with short name jss\
 with extended privilege and hostname jss\
 map /mnt/home to home directory of host\
 map cgroup to enable systemd to run properly\
