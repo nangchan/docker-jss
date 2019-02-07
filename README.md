@@ -35,5 +35,5 @@ Run docker image noreplyback/jss:
 docker run --privileged --hostname jss --name jss -v ~/:/mnt/home -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 2200:22 -p 3000:3000 -d noreplyback/jss
 ```
 
-Run command with line-wrapping\
+*Run command with line-wrapping*\
 docker run --privileged --hostname jss --name jss -v ~/:/mnt/home -v /sys/fs/cgroup:/sys/fs/cgroup:ro -p 2200:22 -p 3000:3000 -d noreplyback/jss
