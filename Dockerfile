@@ -73,9 +73,9 @@ RUN curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | sudo tee /etc/yum.repos.d/ya
 RUN yum -y install yarn
 
 # Install htop
-yum -y install epel-release
-yum -y update
-yum -y install htop
+RUN yum -y install epel-release
+RUN yum -y update
+RUN yum -y install htop
 
 
 
